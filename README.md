@@ -1,6 +1,6 @@
 ## ABOUT
 
-To create an application which will provide all the details of various OTT (Over The Top) platforms a particular movie or series is available on and a short description and various other features to help the user better understand about the movie or series.
+A full stack web application which will provide all the details of various OTT (Over The Top) platforms a particular movie or series is available on and a short description and various other features to help the user better understand about the movie or series.
 
 
 ## TECH STACK
