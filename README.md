@@ -34,7 +34,7 @@ To create an application which will provide all the details of various OTT (Over
 
 
 
-### Before Code Changes:
+### Client: Before Code Changes
 
 **Step 1** - Pull Existing Code
 
@@ -54,11 +54,11 @@ To create an application which will provide all the details of various OTT (Over
     git branch
 
 
-**Step 5** - Add/Write the code w.r.t the mentioned issue/task
+**Step 5** - Add/Write the code with respect to the mentioned issue/task
 
 
 
-### After Code Changes:
+### Client: After Code Changes
     
 **Step 1** - Add the file with code changes
 
@@ -67,12 +67,18 @@ To create an application which will provide all the details of various OTT (Over
 
 **Step 2** - Write a meaningful message for the added code change
     
-    git commit -m "COMMIT MESSAGE " ~file directory
+    git commit -m "COMMIT MESSAGE "
 
 
 **Step 3** - Push changes to GitHub
 
     git push
+
+
+### SERVER:
+
+Coming Soon! Stay Tuned!
+
 
 
 ## PROJECT MANAGEMENT
