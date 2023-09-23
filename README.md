@@ -25,7 +25,7 @@ A full stack web application which will provide all the details of various OTT (
     
 **Step 1** - Clone the project repository
 
-    "git clone https://github.com/Hari2699/movie-finder-web-app.git"
+    git clone https://github.com/Hari2699/movie-finder-web-app.git
 
 
 
@@ -33,7 +33,7 @@ A full stack web application which will provide all the details of various OTT (
 
 **Step 1** - Pull Existing Code
 
-    "git pull"
+    git pull
 
 
 **Step 2** - Check all the code changes are been reflected on your remote desktop/local machine
@@ -51,10 +51,10 @@ A full stack web application which will provide all the details of various OTT (
 
 **Step 5** - Run the code either client/server and verify all the code changes are been reflected on web browser (localhost)
 
-    "npm start"
+    npm start
 
 
-**Step 5** - Add/Write code for the given issue/task
+**Step 6** - Add/Write code for the given issue/task
 
 
 
@@ -67,7 +67,7 @@ A full stack web application which will provide all the details of various OTT (
 
 **Step 2** - Write a meaningful message for the added code change
     
-    git commit -m "COMMIT MESSAGE "
+    git commit -m "COMMIT MESSAGE"
 
 
 **Step 3** - Push changes to GitHub
