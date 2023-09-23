@@ -28,11 +28,6 @@ A full stack web application which will provide all the details of various OTT (
     "git clone https://github.com/Hari2699/movie-finder-web-app.git"
 
 
-**Step 2** - Run the code either client/server and verify all the code changes are been reflected on web browser (localhost)
-
-    "npm start"
-
-
 
 ### Client: Before Code Changes
 
@@ -54,7 +49,12 @@ A full stack web application which will provide all the details of various OTT (
     git branch
 
 
-**Step 5** - Add/Write the code with respect to the mentioned issue/task
+**Step 5** - Run the code either client/server and verify all the code changes are been reflected on web browser (localhost)
+
+    "npm start"
+
+
+**Step 5** - Add/Write code for the given issue/task
 
 
 
