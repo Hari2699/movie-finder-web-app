@@ -39,9 +39,9 @@ A full stack web application which will provide all the details of various OTT (
 **Step 2** - Check all the code changes are been reflected on your remote desktop/local machine
 
 
-**Step 3** - Create a child branch from main based on your first_name
+**Step 3** - Create a child branch from main based based. Name the new branch as per the issue name Eg.: "create-navbar"
 
-    git checkout -b "first_name"
+    git checkout -b "issue_name"
 
     
 **Step 4** - To verify your current branch
