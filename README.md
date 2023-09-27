@@ -25,7 +25,12 @@ A full stack web application which will provide all the details of various OTT (
     
 **Step 1** - Clone the project repository
 
-    git clone https://github.com/Hari2699/movie-finder-web-app.git
+    "git clone https://github.com/Hari2699/movie-finder-web-app.git"
+
+
+**Step 2** - Run the code either client/server and verify all the code changes are been reflected on web browser (localhost)
+
+    "npm start"
 
 
 
@@ -33,15 +38,15 @@ A full stack web application which will provide all the details of various OTT (
 
 **Step 1** - Pull Existing Code
 
-    git pull
+    "git pull"
 
 
 **Step 2** - Check all the code changes are been reflected on your remote desktop/local machine
 
 
-**Step 3** - Create a child branch from main based based. Name the new branch as per the issue name Eg.: "create-navbar"
+**Step 3** - Create a child branch from main based on your first_name
 
-    git checkout -b "issue_name"
+    git checkout -b "first_name"
 
     
 **Step 4** - To verify your current branch
@@ -49,12 +54,7 @@ A full stack web application which will provide all the details of various OTT (
     git branch
 
 
-**Step 5** - Run the code either client/server and verify all the code changes are been reflected on web browser (localhost)
-
-    npm start
-
-
-**Step 6** - Add/Write code for the given issue/task
+**Step 5** - Add/Write the code with respect to the mentioned issue/task
 
 
 
@@ -67,7 +67,7 @@ A full stack web application which will provide all the details of various OTT (
 
 **Step 2** - Write a meaningful message for the added code change
     
-    git commit -m "COMMIT MESSAGE"
+    git commit -m "COMMIT MESSAGE "
 
 
 **Step 3** - Push changes to GitHub
@@ -75,12 +75,27 @@ A full stack web application which will provide all the details of various OTT (
     git push
 
 
-### SERVER:
+### SERVER - backend:
 
-Coming Soon! Stay Tuned!
+**Step 1** - in your terminal: 
+
+      "python -m pip install django"
+    OR
+      "python3 -m pip install django"
+
+
+**Step 2** - Use this code to create new Django project only
+    
+    "django-admin startproject project name"
+
+
+**Step 3** Run Django server 
+
+    "python manager.py runserver"
 
 
 
+**New Comments Coming Soon! Stay Tuned!**
 ## PROJECT MANAGEMENT
 
 **Jira** - SCRUM
