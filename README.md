@@ -75,7 +75,7 @@ A full stack web application which will provide all the details of various OTT (
     git push
 
 
-### SERVER - backend:
+### Server: Backend:
 
 **Step 1** - in your terminal: 
 
@@ -99,3 +99,5 @@ A full stack web application which will provide all the details of various OTT (
 ## PROJECT MANAGEMENT
 
 **Jira** - SCRUM
+
+***https://mseeproject.atlassian.net/jira/software/projects/MFWA/boards/2***
