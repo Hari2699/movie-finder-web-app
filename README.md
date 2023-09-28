@@ -111,6 +111,6 @@ A full stack web application which will provide all the details of various OTT (
 
 ## PROJECT MANAGEMENT
 
-**GitHub Porjects**
+**GitHub Projects**
 
 ***https://github.com/users/Hari2699/projects/4/views/1***
