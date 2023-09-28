@@ -109,10 +109,8 @@ A full stack web application which will provide all the details of various OTT (
     "python3 manage.py runserver"
 
 
-
-**New Comments Coming Soon! Stay Tuned!**
 ## PROJECT MANAGEMENT
 
-**Jira** - SCRUM
+**GitHub Porjects**
 
-***https://mseeproject.atlassian.net/jira/software/projects/MFWA/boards/2***
+***https://github.com/users/Hari2699/projects/4/views/1***
