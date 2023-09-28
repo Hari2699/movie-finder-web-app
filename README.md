@@ -86,7 +86,7 @@ A full stack web application which will provide all the details of various OTT (
     "./projects/movie-finder-web-app/server"
 
 
-**Step 2** - in your terminal: 
+**Step 2** - in your terminal: (not recommended for this project as everything is installed)
 
       "python -m pip install django"
       
@@ -95,12 +95,12 @@ A full stack web application which will provide all the details of various OTT (
       "python3 -m pip install django"
 
 
-**Step 3** - Use this code to create new Django project only
+**Step 3** - Use this code to create new Django project only (not recommended for this project as everything is installed)
     
     "django-admin startproject project name"
 
 
-**Step 4** Run Django server 
+**Step 4** Run Django server (skip directly to this step)
 
     "python manage.py runserver"
 
