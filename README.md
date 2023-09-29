@@ -48,9 +48,9 @@ A full stack web application which will provide all the details of various OTT (
 **Step 3** - Check all the code changes are been reflected on your remote desktop/local machine
 
 
-**Step 4** - Create a child branch from main based on your first_name
+**Step 4** - Create a child branch from main branch (note: new branch name should be related to the issue)
 
-    git checkout -b "first_name"
+    git checkout -b "add-boilerplate-to-pages/component"
 
     
 **Step 5** - To verify your current branch
@@ -76,7 +76,7 @@ A full stack web application which will provide all the details of various OTT (
 
 **Step 3** - Push changes to GitHub
 
-    git push
+    git push --set-upstream origin add-boilerplate-to-pages/component
 
 
 ### Server: Backend:
