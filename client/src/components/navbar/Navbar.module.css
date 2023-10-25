@@ -1,0 +1,157 @@
+.navbarBg {
+    position: absolute;
+    width: 100%;
+    /* background: rgba(14, 17, 17, 0.247); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    /* position: sticky; */
+    top: 0;
+    z-index: 10;
+    transition: 0.8s all ease;
+  }
+  
+  .navcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    padding: 0 24px;
+    max-width: 1300px;
+  }
+  
+  .navlogo {
+    color: #fff;
+    justify-self: flex-start;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    /* background: url(../../assets/Images/logo.png); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .navmenu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    margin: 5 auto;
+  }
+  
+  .navitem {
+    height: 60px;
+    margin: 0px;
+  }
+  
+  .navbtn {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .navbtnlink1 {
+    border-radius: 50px;
+    background: #01bf71;
+    white-space: nowrap;
+    padding: 10px 22px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    margin: 10px;
+  }
+  
+  .navbtnlink1:hover {
+    text-decoration: none;
+    color:#fff;
+  }
+  
+  .navbtnlink2 {
+    border-radius: 50px;
+    background: white;
+    white-space: nowrap;
+    padding: 10px 22px;
+    color: #01bf71;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+  }
+  
+  .navbtnlink2:hover {
+    transition: all 0.2s ease-in-out;
+    background: #01bf71;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .profile {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+  }
+  
+  @media screen and (max-width: 575px) {
+    .navlogo {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .navbarBg {
+      padding: 0 10px;
+    }
+  
+    .navbtnlink1 {
+      padding: 6px 12px;
+      font-size: 10px;
+    }
+  
+    .navbtnlink2 {
+      padding: 6px 12px;
+      font-size: 10px;
+    }
+    
+    .profile {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  @media screen and (min-width: 576px) and (max-width: 768px) {
+    .navmenu {
+      display: flex;
+    }
+    .navbtn {
+      display: flex;
+    }
+    .navbtnlink1 {
+      padding: 10px 22px;
+      font-size: 14px;
+    }
+  
+    .navbtnlink2 {
+      padding: 10px 22px;
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .navbarBg {
+      padding: 5px 24px;
+    }
+  }
+  
