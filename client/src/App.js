@@ -9,7 +9,6 @@ import SignIn from './pages/signin/SignIn';
 function App() {
   
   return (
-    //Header needed here
     <Router>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -17,7 +16,6 @@ function App() {
             <Route path="/signin" component={SignIn} />
           </Switch>
     </Router>
-    //Footer needed her
   );
 }
 
