@@ -35,7 +35,7 @@
   flex-direction: column;
 }
 
-input {
+/* input {
   z-index: 2;
   width: 50%;
   padding: 15px;
@@ -44,7 +44,7 @@ input {
   background: #333333;
   color: white;
   outline: none;
-}
+} */
 
 input[type="submit"] {
   cursor: pointer;
