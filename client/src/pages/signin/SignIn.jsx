@@ -100,10 +100,10 @@ const SignIn = () => {
   } else {
     content = (
       <>
-        <Link to="/">
-          {/* <img className={classes.logo} src={logo} alt="logo" /> */}
-        </Link>
-
+        {/* <Link to="/">
+          <img className={classes.logo} src={logo} alt="logo" />
+        </Link> */}
+      
         <div className={classes.SignIn}>
           <div className={classes.SignIn_Box}>
             <h1 className={classes.title_SU}>SIGN IN</h1>
