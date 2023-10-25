@@ -35,7 +35,6 @@
   flex-direction: column;
 }
 
-
 input[type="submit"] {
   cursor: pointer;
   width: auto;
