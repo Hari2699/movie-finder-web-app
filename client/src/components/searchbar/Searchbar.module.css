@@ -1,0 +1,100 @@
+.searchbarDiv {
+  /* display: flex; */
+  /* max-width: 400px;
+  max-height: 50px; */
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchbarDiv input:focus {
+  outline: none;
+  background-color: #17252a;
+}
+
+.searchbarDiv input::placeholder {
+  color: #0dc971d8;
+  text-transform: none;
+}
+
+.searchbarDiv input {
+  height: 50px;
+  width: 85%;
+  border-radius: 15px 0px 0px 15px;
+  border: 3px solid #0dc971d8;
+  background-color: rgba(60, 60, 60, 0.73);
+  padding-left: 20px;
+  font-size: 20px;
+  color: #0dc971d8;
+  margin-bottom: 0;
+  transition: all 0.3s ease;
+}
+
+.searchButton {
+  position: relative;
+  display: inline-block;
+  width: 15%;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 0px 15px 15px 0px;
+  background-color: #0dc971d8;
+}
+
+.searchImage {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 30%;
+  width: 26px;
+  height: 26px;
+}
+
+.searchImage > img {
+  width: 100%;
+  height: 100%;
+}
+
+/* for mobile view */
+
+@media screen and (max-width:575px) {
+    .searchbarDiv input {
+        padding-left: 5px;
+        width: 85%;
+        height: 35px;
+        font-size: 13px;
+    }
+    
+    .searchButton {
+        height: 36px;
+    }
+    .searchImage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 15px;
+        width: 15px;
+    }
+}
+
+/* for medium screens */
+
+@media screen and (min-width: 576px) and (max-width: 757px) {
+    .searchbarDiv input[type="text"] {
+        padding-left: 10px;
+        height: 45px;
+        font-size: 15px;
+        border-radius:10px 0px 0px 10px ;
+    }
+    .searchButton {
+        height: 45px;
+        border-radius: 0px 10px 10px 0px;
+    }
+    .searchImage {
+        margin-top: 8px;
+        margin-left: 17px;
+        height: 20px;
+        width: 20px;
+    }
+}
