@@ -1,0 +1,94 @@
+.containerFooter {
+    background: #0e1111;
+    padding: 25px 0;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .itemsFooter {
+    display: flex;
+    color: white;
+    justify-content: center;
+  }
+  
+  .headFooter {
+    padding-top: 5px;
+  }
+  
+  .socialFooter {
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .socialFooter > * {
+    margin: 10px;
+  }
+  
+  .contentFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .scrollUp {
+    height: 70px;
+    width: 40px;
+    border: 2px solid white;
+  
+    border-radius: 50px;
+    cursor: pointer;
+    float: right;
+    margin: -100px 30px 0px 0px;
+    animation: navTop 3s ease-in-out infinite;
+  }
+  @keyframes navTop {
+    0% {
+      transform: translateY(0px);
+    }
+    
+    50% {
+      transform: translateY(20px);
+    }
+    
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .scrollUp:hover {
+    animation-play-state: paused;
+  }
+  
+  .scrollUp > i {
+    padding: 18px 0px 0px 7px;
+    color: #0dc971d8;
+    font-size: 25px;
+  }
+  
+  @media screen and (max-width: 478px) {
+    .scrollUp {
+      margin: -100px 10px 0px 0px;
+      height: 50px;
+      width: 25px;
+    }
+    .scrollUp > i {
+      padding: 13px 0px 0px 2px;
+      color: #0dc971d8;
+      font-size: 20px;
+    }
+  }
+  
+
+  
