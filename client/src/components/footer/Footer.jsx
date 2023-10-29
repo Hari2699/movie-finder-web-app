@@ -11,8 +11,8 @@ const Footer = () => {
     <div className={classes.containerFooter}>
       <div className={classes.itemsFooter}>
         <h3 className={classes.headFooter}>
-          <span style={{ color: "#0dc971d8" }}>CINI</span>
-          <span>SCAPE</span>
+          <span style={{ color: "#0dc971d8" }}>MOVIE</span>
+          <span>FINDER</span>
         </h3>
       </div>
       <div className={classes.socialFooter}>
@@ -22,7 +22,7 @@ const Footer = () => {
         <a href="https://www.instagram.com" ><i className="fab fa-instagram"></i></a>
       </div>
       <div className={classes.contentFooter}>
-        Â©Copyright 2021. All rights reserved.
+        ©Copyright 2021. All rights reserved.
       </div>
 
       <div className={classes.scrollUp} onClick={navTop}>
