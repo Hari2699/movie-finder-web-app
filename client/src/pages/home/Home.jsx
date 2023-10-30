@@ -14,36 +14,36 @@ import Notification from "../../services/NotificationService";
 const Home = () => {
   const { token } = useAuth();
 
-  // const {
-  //   mostPopular,
-  //   latestReleases,
-  //   topRated,
-  //   recommended,
-  //   homePageMovies,
-  //   searchResults,
-  //   getRecommended,
-  //   genreMovies
-  // } = useMovies();
+  const {
+    mostPopular,
+    latestReleases,
+    topRated,
+    recommended,
+    homePageMovies,
+    searchResults,
+    getRecommended,
+    genreMovies
+  } = useMovies();
 
   const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setIsLoading(true);
-  //       await homePageMovies();
-  //       await getRecommended();
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       setIsLoading(false);
-  //       Notification.show({
-  //         message: error,
-  //         status: false,
-  //       });
-  //     }
-  //   };
-  //   fetchData();
-  // }, [token]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        await homePageMovies();
+        await getRecommended();
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        Notification.show({
+          message: error,
+          status: false,
+        });
+      }
+    };
+    fetchData();
+  }, [token]);
 
   let content;
 
@@ -58,20 +58,20 @@ const Home = () => {
           <Searchbar />
         </div>
         <div>
-          {/* <MovieRow
+          <MovieRow
             pathname=""
             title="Search Results"
-            // movies={searchResults}
+            movies={searchResults}
             alternateMsg={
               searchResults.length === 0 &&
               "Search for a movie name to get results"
             }
-          /> */}
+          />
           {token && (
             <MovieRow
               pathname=""
               title="Recomended"
-              // movies={recommended}
+              movies={recommended}
               alternateMsg={"Surf more to get recommendations"}
             />
           )}
@@ -79,32 +79,32 @@ const Home = () => {
               limit
               pathname="/mostpopular"
               title="Most Popular"
-              // movies={mostPopular}
+              movies={mostPopular}
             />
           
             <MovieRow
               limit
               pathname="/latestmovies"
               title="Latest Release"
-              // movies={latestReleases}
+              movies={latestReleases}
             />
           
             <MovieRow
               limit
               pathname="/toprated"
               title="Top Rated"
-              // movies={ topRated }
+              movies={ topRated }
             />
           
-          {/* {
+          {
             genreMovies.map((genreObj) => (
                   <MovieRow key={ genreObj.id }
                     pathname=""
                     title={ genreObj.genre }
-                    // movies={ genreObj.movies }
+                    movies={ genreObj.movies }
                   />
             ))
-          } */}
+          }
         </div>
         <Footer />
       </div>
