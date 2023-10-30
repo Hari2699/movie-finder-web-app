@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
 
       <div className={classes.scrollUp} onClick={navTop}>
-        <i className="fas fa-arrow-up"></i>
+        <i className="fa fa-arrow-up"></i>
       </div>
     </div>
   );
