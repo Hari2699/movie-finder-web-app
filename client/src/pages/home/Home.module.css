@@ -1,0 +1,48 @@
+.imageBackground {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 60vw;
+    max-height: 450px;
+    background-image: url("../../assets/Images/imdb-image.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100vw;
+  }
+  
+  .searchbar {
+    position: absolute;
+    display: block;
+    z-index: 4;
+    margin: auto;
+    width: 50%;
+    max-width: 400px;
+    height: fit-content;
+    top: 250px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  /* for medium screen */
+  @media screen and (max-width: 992px) {
+    .searchbar {
+      width: 60%;
+    }
+  }
+  
+  .page_link {
+    display: flex;
+    flex-direction: row-reverse;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-right: 15px;
+    column-gap: 15px;
+  }
+  
+  /* for mobile view */
+  @media screen and (max-width: 575px) {
+    .searchbar {
+      max-width: 300px;
+      top: 17vh;
+    }
+  }
