@@ -16,13 +16,13 @@ const Footer = () => {
         </h3>
       </div>
       <div className={classes.socialFooter}>
-        <a href="https://www.facebook.com" ><i className="fab fa-facebook"></i></a>
-        <a href="https://www.youtube.com" ><i className="fab fa-youtube"></i></a>
-        <a href="https://www.twitter.com" ><i className="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com" ><i className="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com" ><i className="fa fa-facebook"></i></a>
+        <a href="https://www.youtube.com" ><i className="fa fa-youtube"></i></a>
+        <a href="https://www.twitter.com" ><i className="fa fa-twitter"></i></a>
+        <a href="https://www.instagram.com" ><i className="fa fa-instagram"></i></a>
       </div>
       <div className={classes.contentFooter}>
-        ©Copyright 2021. All rights reserved.
+        ©Copyright 2023. All rights reserved.
       </div>
 
       <div className={classes.scrollUp} onClick={navTop}>
