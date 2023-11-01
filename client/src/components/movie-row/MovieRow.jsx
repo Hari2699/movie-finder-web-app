@@ -4,7 +4,7 @@ import classes from "./MovieRow.module.css";
 import MovieCard from "../movie-card/MovieCard";
 
 const MovieRow = ({ title, movies, transparentBg, alternateMsg, pathname, limit }) => {
-  let moviesArr = limit ? movies.slice(0, 10) : movies
+  let moviesArr = limit ? movies.slice(0, 10) : movies;
   
   let msg = alternateMsg ? (
     <h2 className={classes.alternateMsg}>{alternateMsg}</h2>

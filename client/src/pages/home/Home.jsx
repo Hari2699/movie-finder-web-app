@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import classes from "./Home.module.css";
 
 import Searchbar from "../../components/searchbar/Searchbar";
@@ -11,39 +12,83 @@ import Footer from "../../components/footer/Footer";
 import Preloader from "./../../components/preloader/Preloader";
 import Notification from "../../services/NotificationService";
 
+const API_KEY = '7af1cba5c48ce69c437e486757fef8f7';
+const BASE_URL = 'https://api.themoviedb.org/3';
+
+
 const Home = () => {
   const { token } = useAuth();
 
-  // const {
-  //   mostPopular,
-  //   latestReleases,
-  //   topRated,
-  //   recommended,
-  //   homePageMovies,
-  //   searchResults,
-  //   getRecommended,
-  //   genreMovies
-  // } = useMovies();
+  const {
+    //mostPopular,
+    //latestReleases,
+    //topRated,
+    recommended,
+    homePageMovies,
+    searchResults,
+    getRecommended,
+    genreMovies
+  } = useMovies();
+
+
+  const [mostPopular, setmostPopular] = useState([]);
+  const [latestReleases, setlatestReleases] = useState([]);
+  const [topRated, settopRated] = useState([]);
+
+  const fetchmostPopular = async () => {
+    try {
+      const { data } = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
+      setmostPopular(data.results);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const fetchlatestReleases = async () => {
+    try {
+      const { data } = await axios.get(`${BASE_URL}/movie/now_playing?api_key=${API_KEY}`);
+      setlatestReleases(data.results);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const fetchtopRated = async () => {
+    try {
+      const { data } = await axios.get(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`);
+      settopRated(data.results);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    fetchmostPopular();
+    fetchlatestReleases();
+    fetchtopRated();
+
+  }, []);
+
 
   const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setIsLoading(true);
-  //       await homePageMovies();
-  //       await getRecommended();
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       setIsLoading(false);
-  //       Notification.show({
-  //         message: error,
-  //         status: false,
-  //       });
-  //     }
-  //   };
-  //   fetchData();
-  // }, [token]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        await homePageMovies();
+        await getRecommended();
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        Notification.show({
+          message: error,
+          status: false,
+        });
+      }
+    };
+    fetchData();
+  }, [token]);
 
   let content;
 
@@ -57,21 +102,21 @@ const Home = () => {
         <div className={classes.searchbar}>
           <Searchbar />
         </div>
-        <div>
-          {/* <MovieRow
+        <div className={classes.MovieRow}>
+          <MovieRow
             pathname=""
             title="Search Results"
-            // movies={searchResults}
+            movies={searchResults}
             alternateMsg={
               searchResults.length === 0 &&
               "Search for a movie name to get results"
             }
-          /> */}
+          />
           {token && (
             <MovieRow
               pathname=""
               title="Recomended"
-              // movies={recommended}
+              movies={recommended}
               alternateMsg={"Surf more to get recommendations"}
             />
           )}
@@ -79,32 +124,32 @@ const Home = () => {
               limit
               pathname="/mostpopular"
               title="Most Popular"
-              // movies={mostPopular}
+              movies={mostPopular}
             />
           
             <MovieRow
               limit
               pathname="/latestmovies"
               title="Latest Release"
-              // movies={latestReleases}
+              movies={latestReleases}
             />
           
             <MovieRow
               limit
               pathname="/toprated"
               title="Top Rated"
-              // movies={ topRated }
+              movies={ topRated }
             />
           
-          {/* {
+          {
             genreMovies.map((genreObj) => (
                   <MovieRow key={ genreObj.id }
                     pathname=""
                     title={ genreObj.genre }
-                    // movies={ genreObj.movies }
+                    movies={ genreObj.movies }
                   />
             ))
-          } */}
+          }
         </div>
         <Footer />
       </div>

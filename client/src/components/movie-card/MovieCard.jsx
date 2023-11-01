@@ -30,11 +30,9 @@ const MovieCard = ({ movie }) => {
                     : null
                 }
                 <LazyLoadImage 
-                    src={movie.posterPath} 
+                    src= {`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                     alt={movie.title} 
                     effect="blur"
-                    height='100%'
-                    width='100%'
                 />
             </Link>
         </div>
