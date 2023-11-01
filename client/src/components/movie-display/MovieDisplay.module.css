@@ -1,0 +1,24 @@
+.movieRow {
+    position: relative;
+    padding: 20px 0;
+    height: 80%;
+}
+
+.MovieReel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.MovieLink .Movie {
+    margin: 0 !important;
+}
+
+/* for mobile view */
+
+@media screen and (max-width: 575px) {
+    .movieRowHeader > h2 {
+        font-size: 15px;
+    }    
+}
