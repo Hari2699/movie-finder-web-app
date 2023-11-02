@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Home.module.css";
+import axios from "axios";
 
 import Searchbar from "../../components/searchbar/Searchbar";
 import MovieRow from "../../components/movie-row/MovieRow";
@@ -11,19 +12,63 @@ import Footer from "../../components/footer/Footer";
 import Preloader from "./../../components/preloader/Preloader";
 import Notification from "../../services/NotificationService";
 
+import { API_KEY } from "../../services/Api";
+import { BASE_URL } from "../../services/Api";
+
+
 const Home = () => {
   const { token } = useAuth();
 
   const {
-    mostPopular,
-    latestReleases,
-    topRated,
+    //mostPopular,
+    //latestReleases,
+    //topRated,
     recommended,
     homePageMovies,
     searchResults,
     getRecommended,
     genreMovies
   } = useMovies();
+
+
+  const [mostPopular, setmostPopular] = useState([]);
+  const [latestReleases, setlatestReleases] = useState([]);
+  const [topRated, settopRated] = useState([]);
+
+  const fetchmostPopular = async () => {
+    try {
+      const { data } = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
+      setmostPopular(data.results);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const fetchlatestReleases = async () => {
+    try {
+      const { data } = await axios.get(`${BASE_URL}/movie/now_playing?api_key=${API_KEY}`);
+      setlatestReleases(data.results);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const fetchtopRated = async () => {
+    try {
+      const { data } = await axios.get(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`);
+      settopRated(data.results);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    fetchmostPopular();
+    fetchlatestReleases();
+    fetchtopRated();
+
+  }, []);
+
 
   const [isLoading, setIsLoading] = useState(false);
 
