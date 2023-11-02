@@ -36,7 +36,7 @@ const MovieRow = ({ title, movies, transparentBg, alternateMsg, pathname, limit 
               className={classes.headerLink}
             >
               <h2>{title}</h2>
-              <i className="fas fa-arrow-right"></i>
+              <i className="fa fa-arrow-right"></i>
             </Link>
           ) : (
             <h2 className={ classes.defaultCursor }>{title}</h2>
