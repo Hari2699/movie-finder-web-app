@@ -24,9 +24,9 @@ const Home = () => {
     //latestReleases,
     //topRated,
     recommended,
-    homePageMovies,
-    searchResults,
-    getRecommended,
+    //homePageMovies,
+    //searchResults,
+    //getRecommended,
     genreMovies
   } = useMovies();
 
@@ -34,11 +34,13 @@ const Home = () => {
   const [mostPopular, setmostPopular] = useState([]);
   const [latestReleases, setlatestReleases] = useState([]);
   const [topRated, settopRated] = useState([]);
+  const [searchResults, setsearchResults] = useState('');
 
   const fetchmostPopular = async () => {
     try {
       const { data } = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
       setmostPopular(data.results);
+      console.log(data.results);
     } catch (err) {
       console.log(err);
     }
@@ -62,22 +64,33 @@ const Home = () => {
     }
   }
 
+  const fetchsearchResults = async (query) => {
+    try {
+      const { data } = await axios.get(`${BASE_URL}/search/movie?query=${query}&api_key=${API_KEY}`);
+      const searchResultsWithPosters = data.results.filter(movie => movie.poster_path !== null);
+      setsearchResults(searchResultsWithPosters);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   useEffect(() => {
     fetchmostPopular();
     fetchlatestReleases();
     fetchtopRated();
+    fetchsearchResults();
 
   }, []);
 
-
+  
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        await homePageMovies();
-        await getRecommended();
+        //await homePageMovies();
+        //await getRecommended();
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
@@ -100,7 +113,7 @@ const Home = () => {
         <Navbar />
         <div className={classes.imageBackground}></div>
         <div className={classes.searchbar}>
-          <Searchbar />
+          <Searchbar onSearch={fetchsearchResults} />
         </div>
         <div>
           <MovieRow
