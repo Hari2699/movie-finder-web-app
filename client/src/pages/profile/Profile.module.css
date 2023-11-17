@@ -1,0 +1,186 @@
+.ProfileContent {
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+  background-color: #0e1111;
+}
+
+.ProfilePic {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: -75px;
+  left: 50%;
+  margin-left: -75px;
+  border-radius: 50%;
+}
+
+.ProfilePic > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Details,
+.Password {
+  width: 50%;
+  margin: auto;
+}
+
+.Details {
+  padding-top: 100px;
+}
+
+.Password {
+  padding: 50px 0;
+}
+
+.Subtitle {
+  color: #0dc971;
+  padding-bottom: 10px;
+}
+
+.DetailsContent {
+  background-color: #17252a;
+  border-radius: 5px;
+  color: red;
+}
+
+.DetailsContentRow {
+  padding: 10px 0px;
+  width: 70%;
+}
+
+.DetailsKey {
+  color: #ba63ff;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.DetailsValue {
+  font-weight: normal;
+  color: #f0ebf4;
+  font-size: 20px;
+  text-align: left;
+  max-width: 50% !important;
+  margin: 0 auto;
+}
+
+.DetailsContent hr {
+  padding: 0 10px;
+  background-color: #0dc971;
+  margin: 0;
+}
+
+.PasswordForm input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.PasswordForm input:last-child {
+  margin-bottom: 0;
+}
+
+.PasswordForm input::placeholder {
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+.PasswordForm .SubmitButton {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #39845e;
+  outline: none;
+  border: none;
+  color: #f0ebf4;
+  font-weight: 500;
+}
+
+.PasswordForm .SubmitButton:hover {
+  background-color: #0dc971;
+}
+
+@media screen and (min-width: 576px) and (max-width: 992px) {
+  .Details,
+  .Password {
+    width: 90%;
+  }
+
+  .DetailsContentRow {
+    width: 100%;
+    margin: 0;
+  }
+
+  .DetailsValue {
+    max-width: 100% !important;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width:576px) and (max-width: 992px) {
+    .Details,
+    .Password {
+        width: 90%;
+    }
+    
+    .DetailsContentRow {
+        width: 100%;
+        margin: 0;
+    }
+    
+    
+    .DetailsValue {
+        max-width: 100% !important;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+  .ProfilePic {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: 50%;
+    margin-left: -50px;
+  }
+
+  .Subtitle {
+    font-size: 24px;
+  }
+
+  .Details,
+  .Password {
+    width: 90%;
+  }
+
+  .DetailsContentRow {
+    width: 100%;
+    margin: 0;
+  }
+
+  .DetailsKey,
+  .DetailsValue {
+    font-size: 18px;
+  }
+
+  .DetailsValue {
+    max-width: 100% !important;
+    margin: 0;
+  }
+
+  .PasswordForm input {
+    height: 40px;
+  }
+
+  .PasswordForm input::placeholder {
+    font-size: 12px;
+  }
+
+  .PasswordForm input[type="submit"],
+  .PasswordForm .SubmitButton {
+    font-size: 12px;
+  }
+}
