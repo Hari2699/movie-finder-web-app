@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './Description.module.css';
 
 import {Container,Row,Col} from 'react-bootstrap';
-import CommaSeperatedText from '../../../components/comma-seperated-text/CommaSeperatedText';
+import CommaSeperatedText from '../../../components/comma-separated-text/CommaSeperatedText';
 
 
 function Description({ story, directors, writers, stars }){ 
