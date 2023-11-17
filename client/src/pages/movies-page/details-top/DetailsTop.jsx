@@ -1,9 +1,9 @@
 import React from 'react';
 
-import classes from './DetailsTop.module.css';
+import classes from './Details.module.css';
 
 import RatingContents from '../../../components/rating-contents/RatingContents';
-import CommaSeperatedText from '../../../components/comma-seperated-text/CommaSeperatedText';
+import CommaSeperatedText from '../../../components/comma-separated-text/CommaSeperatedText';
 import PlatformsImages from '../../../components/platforms-images/PlatformsImages';
 import GenreContents from '../../../components/genre-contents/GenreContents';
 import DetailsTopRow from './details-top-row/DetailsTopRow';
