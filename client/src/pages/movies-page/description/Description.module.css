@@ -1,0 +1,49 @@
+
+.field{
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    color: #BA63FF;
+    padding-bottom: 5px;
+}
+
+.value{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;    
+}
+
+.description{
+    text-align: left;
+    font-size: 13px;
+    padding: 0px 0px;
+}
+.descriptionBox{
+    margin-top: 2%;
+    color: #F0EBF4;
+}
+
+.descBox{
+    border-top: 1px solid #39845E;
+    border-bottom: 1px solid #39845E;
+    padding: 1%;
+}
+
+.expandTextOption {
+    color: rgb(54, 121, 177);
+}
+
+.expandTextOption:hover {
+    color: rgb(184, 57, 57);
+    cursor: pointer;
+}
+
+@media screen and (max-width:575px) {
+    .descBox {
+        padding: 3% 1%;
+    }
+    
+    .description {
+        padding: 0px 20px;
+    }
+}

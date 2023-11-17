@@ -1,0 +1,16 @@
+x.detailsDiv {
+    color: #F0EBF4;
+    font-size: 14px;
+    padding-left: 12px;
+    width: 100%;
+}
+
+@media screen and (max-width:575px) {
+    .detailsDiv {
+        margin: auto;
+        width: 100vw;
+    }
+}
+
+
+

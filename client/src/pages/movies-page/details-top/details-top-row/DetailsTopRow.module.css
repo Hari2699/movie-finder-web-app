@@ -1,0 +1,55 @@
+.detailsRow {
+    display: flex;
+    height: max-content;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.detailsRow:first-child {
+    margin-top: 0;
+}
+
+.detailsRow:last-child {
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.detailsTag {
+    width: 10vw;
+    color: #BA63FF;
+    text-align: left;
+    margin-right: 37px;
+}
+
+
+.genreDiv {
+    width:60vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.detailsText {
+    color: #F0EBF4;
+}
+
+
+.platfromDiv {
+    color: #F0EBF4;
+}
+
+@media screen and ( max-width:575px ) {
+    .detailsRow:first-child {
+        margin-top: 20px;
+    }
+    .detailsTag {
+        width: 30vw;
+        margin-right: 0;
+    }
+    .languageText{
+        width: 60vw;
+    }
+    .genreDiv {
+        width: 60vw;
+    }
+}
