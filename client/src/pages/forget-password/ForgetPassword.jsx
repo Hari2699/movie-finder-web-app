@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import classes from "./ForgetPassword.module.css";
 import validationService from "../../utils/validation";
 import Notification from "../../services/NotificationService";
-import logo from "../../assets/Images/logo.png";
+// import logo from "../../assets/Images/logo.png";
 import Preloader from "../../components/preloader/Preloader";
 import axios from "axios";
 
@@ -116,7 +116,7 @@ const ForgetPassword = () => {
   else {
     content = <>
       <Link to="/">
-        <img className={ classes.ForgetPasswordLogo } src={ logo } alt='forgot-password' />
+        <img className={ classes.ForgetPasswordLogo } alt='forgot-password' />
       </Link>
       <div className={ classes.ForgetPasswordContainer }>
         <div className={ classes.ForgetPasswordContent }>
