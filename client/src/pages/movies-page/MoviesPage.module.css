@@ -1,0 +1,54 @@
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.topWrapper {
+    display: block;
+    height: fit-content;
+    padding-top: 10px;
+}
+.movieTop {
+    display: flex;
+    width: 100%;
+    height: max-content;
+    padding-left: 35px;
+}
+
+.leftDiv{
+    display: flex;
+    max-width: 250px;
+    position: relative;
+    width: 40vw;
+    color:red;
+    align-items: center;
+}
+
+.rightDiv{
+    display: flex;
+    font-size: 14px;
+    width: 60%;
+    color:#F0EBF4;
+}
+.Desc {
+    display: flex;
+    position: relative;
+}
+
+@media screen and (max-width:575px) {
+    .movieTop {
+        flex-direction: column;
+        padding-left: 0px;
+    }
+    .leftDiv {
+        width: 100vw;
+        margin: auto;
+    }
+    .rightDiv {
+        width: 90vw;
+        margin: auto;
+    }
+    .Desc {
+        display: flex;
+    }
+}
