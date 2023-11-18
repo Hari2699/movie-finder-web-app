@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import classes from './Searchbar.module.css'
 import { useMovies } from '../../context/movies/movieState'
 
@@ -6,28 +6,27 @@ import searchImage from '../../assets/Images/search.png'
 import Notification from '../../services/NotificationService';
 
 
-const Searchbar = () => {
-    const { searchMovies, searchQuery } = useMovies()
-    const [text, setText] = useState(searchQuery);
+const Searchbar = ({ onSearch }) => {
+    const { searchQuery } = useMovies();
+    const [text, setText] = useState(searchQuery || '');
     
     const performSearch = async (e) => {
         try {
+            e.preventDefault();
             if (text.length === 0) {
                 Notification.show({
                     message: 'Cannot search movies for an empty query. Type something',
                     status: false
-                })
-                
-                return
+                });
+                return;
             }
-            e.preventDefault()
-            
-            await searchMovies(text)
+            onSearch(text);
         } catch (error) {
+            console.error('Error while performing search:', error);
             Notification.show({
                 message:error,
                 status:false
-            })
+            });
         }
     };
 
