@@ -18,7 +18,7 @@ import axios from 'axios';
 
 
 const MoviePage = () => {
-    const { getMovieById } = useMovies()
+    const { getMovieById, getMovieCredits } = useMovies()
     const { id: movieId } = useParams();
     
     const [movie, setMovie] = useState({
@@ -26,8 +26,8 @@ const MoviePage = () => {
         genres: [],
         releaseDate: "01-01-1000",
         posterPath: "",
-        ratings: [],
-        language: [],
+        vote_average: 0,
+        languages: [],
         streaming: [],
         actors: [],
         writer: [],
@@ -38,6 +38,7 @@ const MoviePage = () => {
         similarMovies: [],
         trailer: ""
     })
+
     const [isLoading, setIsLoading] = useState(false)
 
     const history = useHistory()
@@ -51,6 +52,8 @@ const MoviePage = () => {
                 setIsLoading(true)
                 const movie = await getMovieById(movieId)
                 setMovieData(movie)
+                const creditsData = await getMovieCredits(movieId);
+                setCreditData(creditsData);
                 setIsLoading(false)
             } catch (error) {
                 setIsLoading(false)
@@ -69,9 +72,33 @@ const MoviePage = () => {
     }, [movieId])
     
     const setMovieData = (movieData) => {
-        setMovie(movieData)
-    }
+        let updatedMovieData = {...movieData};
     
+        if (Array.isArray(movieData.spoken_languages)) {
+            const languages = movieData.spoken_languages.map(lang => lang.english_name);
+            updatedMovieData.spoken_languages = languages;
+        }
+        setMovie(updatedMovieData);
+    }
+
+    const setCreditData = (creditsData) => {
+        const directors = creditsData.data.crew
+            .filter(member => member.known_for_department === 'Directing')
+            .map(director => director.name) || [];
+
+        const writers = creditsData.data.crew
+            .filter(member => member.known_for_department === 'Writing')
+            .map(writer => writer.name) || [];
+
+        const stars = creditsData.data.cast.slice(0, 10).map(actor => actor.name) || [];
+        setMovie(prevMovie => ({
+            ...prevMovie,
+            director: directors,
+            writer: writers,
+            actors: stars
+        }));
+    }
+
     let content
     
     if (isLoading) {
@@ -89,14 +116,16 @@ const MoviePage = () => {
                     <div className={ classes.topWrapper }>
                         <div className={ classes.movieTop }>
                             <div className={ classes.leftDiv }>
-                                <Poster posterImage={ movie.posterPath } trailerLink={ movie.trailer } />
+                                <Poster posterImage= {`https://image.tmdb.org/t/p/w300${movie.poster_path}`} 
+                                trailerLink={ movie.trailer } 
+                                />
                             </div>
                             <div className={ classes.rightDiv }>
                                 <DetailsTop
                                     genres={ movie.genres }
-                                    released={ movie.releaseDate }
-                                    ratings={ movie.ratings }
-                                    languages={ movie.language }
+                                    released={ movie.release_date }
+                                    ratings={ movie.vote_average }
+                                    languages={ movie.spoken_languages }
                                     platforms={ movie.streaming }
                                     runtime = { movie.runtime }
                                 />
@@ -111,7 +140,7 @@ const MoviePage = () => {
                             stars={ movie.actors }
                         />
                     </div>
-                    <MovieRow title="Related Movies" movies={movie.similarMovies} transparentBg={true} />
+                    <MovieRow title="Related Movies" movies={movie.similarMovies || []} transparentBg={true} />
                 </div>
           <Footer />
             </>

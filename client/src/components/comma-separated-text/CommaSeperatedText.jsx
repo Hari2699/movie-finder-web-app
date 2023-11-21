@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const CommaSeperatedText = ({ textArray }) => {
+const CommaSeperatedText = ({ textArray = []}) => {
     return (
         <>
             { 

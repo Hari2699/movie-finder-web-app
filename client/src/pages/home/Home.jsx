@@ -40,7 +40,7 @@ const Home = () => {
     try {
       const { data } = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
       setmostPopular(data.results);
-      console.log(data.results);
+      //console.log(data.results);
     } catch (err) {
       console.log(err);
     }
@@ -89,8 +89,6 @@ const Home = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        //await homePageMovies();
-        //await getRecommended();
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);

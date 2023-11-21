@@ -4,6 +4,8 @@ import MovieContext from './movieContext'
 import movieReducer from './movieReducer'
 import { useAuth } from '../auth/authState'
 import { localStoreUtil } from '../movies/movieReducer'
+import { BASE_URL } from "../../services/Api";
+import { API_KEY } from "../../services/Api";
 
 import axios from 'axios';
 import errorResponse from '../../utils/errorResponse'
@@ -107,29 +109,41 @@ const MovieProvider = (props) => {
     const getMovieById = async (movieId) => {
         try {
             movieId = parseInt(movieId)
-            const historyMovies = localStoreUtil('history')
-            const movie = historyMovies.find((histMov) => histMov.id === movieId)
             
+            let historyMovies = localStoreUtil('history')
+            if (!historyMovies) {
+                console.log("getMovieById - No history movies found, initializing to empty array.");
+                historyMovies = [];
+            }
+            const movie = historyMovies.find((histMov) => histMov.id === movieId)
             if (movie) {
                 await setHistoryHandler(movie)
                 return movie
             } else {
                 const { data } = await axios.get(
-                    `/api/movies/movie/${movieId}`,token ? {
+                    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`,token ? {
                         headers: {
                             Authorization: `Bearer ${token}` 
                         }
                     } : null
                 );
-                
-                await setHistoryHandler(data.movieDetails)
-                return data.movieDetails
+                await setHistoryHandler(data)
+                return data
             }
         } catch (error) {
             errorResponse(error)
         }
     }
     
+    const getMovieCredits = async (movieId) => {
+        try {
+            const response = await axios.get(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
+            return response;
+        } catch (error) {
+            errorResponse(error);
+        }
+    };
+
     const setHistoryHandler = async (movie) => {
         try{
             const historyMovies = localStoreUtil('history')
@@ -222,6 +236,7 @@ const MovieProvider = (props) => {
         homePageMovies,
         searchMovies,
         getMovieById,
+        getMovieCredits,
         getHistory,
         getRecommended
     }
