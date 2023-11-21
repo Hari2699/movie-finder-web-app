@@ -18,13 +18,13 @@ import axios from 'axios';
 
 
 const MoviePage = () => {
-    const { getMovieById, getMovieCredits } = useMovies()
+    const { getMovieById, getMovieCredits, getSimilarMovies } = useMovies()
     const { id: movieId } = useParams();
     
     const [movie, setMovie] = useState({
         title: "Movie Name",
         genres: [],
-        releaseDate: "01-01-1000",
+        release_date: "01-01-1000",
         posterPath: "",
         vote_average: 0,
         languages: [],
@@ -54,6 +54,8 @@ const MoviePage = () => {
                 setMovieData(movie)
                 const creditsData = await getMovieCredits(movieId);
                 setCreditData(creditsData);
+                const similarMovies = await getSimilarMovies(movieId);
+                setSimilarMovies(similarMovies);
                 setIsLoading(false)
             } catch (error) {
                 setIsLoading(false)
@@ -99,6 +101,14 @@ const MoviePage = () => {
         }));
     }
 
+    const setSimilarMovies = (similarMovies) => {
+        const similarmovies = similarMovies.data.results || [];
+        setMovie(prevMovie => ({
+            ...prevMovie,
+            similarMovies: similarmovies
+        }));
+    }
+
     let content
     
     if (isLoading) {
@@ -140,7 +150,7 @@ const MoviePage = () => {
                             stars={ movie.actors }
                         />
                     </div>
-                    <MovieRow title="Related Movies" movies={movie.similarMovies || []} transparentBg={true} />
+                    <MovieRow title="Related Movies" movies={movie.similarMovies || []} pathname=" " transparentBg={true} />
                 </div>
           <Footer />
             </>

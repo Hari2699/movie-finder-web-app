@@ -40,7 +40,6 @@ const Home = () => {
     try {
       const { data } = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
       setmostPopular(data.results);
-      //console.log(data.results);
     } catch (err) {
       console.log(err);
     }
@@ -79,7 +78,6 @@ const Home = () => {
     fetchlatestReleases();
     fetchtopRated();
     fetchsearchResults();
-
   }, []);
 
   
