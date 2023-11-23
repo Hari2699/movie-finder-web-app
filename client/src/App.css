@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background-color: #17252a;
+  background-color: #313131;
 }
 
 *::-webkit-scrollbar{
@@ -28,7 +28,7 @@ body {
 
 /* Handle on hover */
 *::-webkit-scrollbar-thumb:hover {
-  background: #38945e;
+  background: #FF5F1Fd8;
 }
 
 /*

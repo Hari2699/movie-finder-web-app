@@ -11,7 +11,7 @@ const Footer = () => {
     <div className={classes.containerFooter}>
       <div className={classes.itemsFooter}>
         <h3 className={classes.headFooter}>
-          <span style={{ color: "#0dc971d8" }}>MOVIE</span>
+          <span style={{ color: "#FF5F1Fd8" }}>MOVIE</span>
           <span>FINDER</span>
         </h3>
       </div>
