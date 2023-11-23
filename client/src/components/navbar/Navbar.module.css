@@ -59,7 +59,7 @@
   
   .navbtnlink1 {
     border-radius: 50px;
-    background: #01bf71;
+    background: #FF5F1F;
     white-space: nowrap;
     padding: 10px 22px;
     color: white;
@@ -82,7 +82,7 @@
     background: white;
     white-space: nowrap;
     padding: 10px 22px;
-    color: #01bf71;
+    color: #FF5F1F;
     font-size: 16px;
     outline: none;
     border: none;
@@ -93,7 +93,7 @@
   
   .navbtnlink2:hover {
     transition: all 0.2s ease-in-out;
-    background: #01bf71;
+    background: #FF5F1F;
     color: white;
     text-decoration: none;
   }

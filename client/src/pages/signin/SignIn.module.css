@@ -38,7 +38,7 @@
 input[type="submit"] {
   cursor: pointer;
   width: auto;
-  background: #164930;
+  background: #ff5f1fab;
 }
 
 input::placeholder {
@@ -47,7 +47,7 @@ input::placeholder {
 }
 
 input[type="submit"]:hover {
-  background-color: #298b5c;
+  background-color: #FF5F1Fd8;
 }
 
 .bottomLinkWrapper {

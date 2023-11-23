@@ -25,7 +25,7 @@ const MovieRow = ({ title, movies = [], transparentBg, alternateMsg, pathname, l
     <div className={classes.movieRow}>
       <div
         style={
-          transparentBg === undefined ? { backgroundColor: "#0E1111" } : null
+          transparentBg === undefined ? { backgroundColor: "#222222" } : null
         }
         className={classes.movieRowHeader}
       >
@@ -46,7 +46,7 @@ const MovieRow = ({ title, movies = [], transparentBg, alternateMsg, pathname, l
 
       <div
         style={
-          transparentBg === undefined ? { backgroundColor: "#0E1111" } : null
+          transparentBg === undefined ? { backgroundColor: "#222222" } : null
         }
         className={classes.MovieReel}
       >

@@ -1,5 +1,5 @@
 .containerFooter {
-    background: #0e1111;
+    background: #222222;
     padding: 25px 0;
     color: white;
     align-items: center;
@@ -73,7 +73,7 @@
   
   .scrollUp > i {
     padding: 18px 0px 0px 7px;
-    color: #0dc971d8;
+    color: #FF5F1Fd8;
     font-size: 25px;
   }
   
@@ -85,7 +85,7 @@
     }
     .scrollUp > i {
       padding: 13px 0px 0px 2px;
-      color: #0dc971d8;
+      color: #FF5F1Fd8;
       font-size: 20px;
     }
   }

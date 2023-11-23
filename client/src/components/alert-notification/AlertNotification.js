@@ -11,7 +11,7 @@ import "./AlertNotification.css";
  */
 
 const AlertNotification = ({ id, message, status, handleClose }) => {
-  const [icon] = useState(status === true ? "far fa-check-circle" : "fas fa-exclamation")
+  const [icon] = useState(status === true ? "fa fa-check-circle" : "fa fa-exclamation")
   const [title] = useState(status === false ? "Error" : "Success")
   useLayoutEffect(() => {
     const closeMe = () => {
