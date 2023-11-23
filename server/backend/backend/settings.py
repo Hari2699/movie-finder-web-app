@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +26,58 @@ SECRET_KEY = 'django-insecure-)5po$e54k@-d+8m3+3mw&-syr6s77=!vnjz3(sdsmpwrnkm=2i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+CSRF_COOKIE_NAME = 'csrftoken'  # Default CSRF cookie name
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Add the origin of your frontend application
+    'http://127.0.0.1:3000',
+    
+    ]
+
+ALLOWED_HOSTS = ['*']
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+# CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS=['http://localhost:3000']
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'access-control-allow-origin',
+    'access-control-allow-credentials',
+    'access-control-allow-headers',
+    'access-control-allow-methods',
+]
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.MultiPartParser',  # Ensure this is included
+    ),
+}
 
 # Application definition
 
@@ -37,9 +88,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'rest_framework',
+    'moviefinder.apps.MoviefinderConfig',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -83,6 +138,19 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+
+
+## User model
+AUTH_USER_MODEL = 'moviefinder.AppUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

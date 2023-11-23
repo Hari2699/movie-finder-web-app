@@ -114,3 +114,18 @@ A full stack web application which will provide all the details of various OTT (
 **GitHub Projects**
 
 ***https://github.com/users/Hari2699/projects/4/views/1***
+
+
+
+## register format
+{
+    "email": "test@testing.com",
+    "username": "test123",
+    "password": "Ring@1919"
+}
+
+## login format
+{
+    "email": "test@testing.com",
+    "password": "Ring@1919"
+}
