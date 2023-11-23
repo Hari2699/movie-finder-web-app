@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import classes from "./MovieRow.module.css";
 import MovieCard from "../movie-card/MovieCard";
 
-const MovieRow = ({ title, movies, transparentBg, alternateMsg, pathname, limit }) => {
+const MovieRow = ({ title, movies = [], transparentBg, alternateMsg, pathname, limit }) => {
   let moviesArr = limit ? movies.slice(0, 10) : movies
   
   let msg = alternateMsg ? (

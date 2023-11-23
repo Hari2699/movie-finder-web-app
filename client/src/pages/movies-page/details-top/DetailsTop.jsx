@@ -30,12 +30,12 @@ const DetailsTop = (props) => {
         },
         {
             name: 'ratings',
-            content: <RatingContents ratingsArray={ props.ratings }/>,
+            content: <RatingContents ratingValue={ props.ratings }/>,
             contentClass: classes.ratingsDiv 
         },
         {
             name:'languages',
-            content: <CommaSeperatedText textArray={ props.languages }/>,
+            content: <CommaSeperatedText textArray={ props.languages || []}/>,
             contentClass: classes.languageText
         },
         {
