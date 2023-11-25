@@ -280,7 +280,7 @@ const GotoPage = (props) => {
         <div className={ classes.GotoPage }>
           <TopBar title={ title } />
           <div className={ classes.pageContent }>
-            <div className={ classes.options }>
+            {/* <div className={ classes.options }>
               <div className={ classes.filter }>
                 <h5 className={ classes.optionTitle }>FILTER</h5>
                 <div className={ classes.dropdown }>
@@ -297,7 +297,7 @@ const GotoPage = (props) => {
                   <SortDropDown btnName="SORT BY" />
                 </div>
               </div>
-            </div>
+            </div> */}
             <MovieDisplay movies={ displayMoviesList } />
           </div>
         </div>
