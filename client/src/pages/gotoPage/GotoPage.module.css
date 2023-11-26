@@ -1,0 +1,83 @@
+.filter {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  .sort {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .options {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .optionTitle {
+    color: #37845e;
+    display: inline;
+  }
+  
+  .caretButton {
+    color: #37845e;
+  }
+  
+  @media screen and (max-width: 350px) {
+    .filter,
+    .sort {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  /* for mobile view */
+  @media screen and (min-width: 351px) and (max-width: 575px) {
+    .filter, 
+    .sort {
+      margin: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .options .btn {
+      padding-bottom: 10px !important;
+    }
+    
+    .filter .dropdown {
+      width: 100%;
+      margin-left: 10px;
+    }
+    
+    .sort .dropdown {
+      width: 100%;
+      margin-left: 10px;
+    }
+  }
+  
+  @media screen and (min-width: 576px) {
+    .options {
+      width: 100%;
+    }
+    
+    .optionTitle {
+      width: 30%;
+      text-align: end;
+      margin-right: 20px;
+    }
+    
+    .filter,
+    .sort {
+      display: flex;
+      align-items: center;
+    }
+    
+    .dropdown {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 20%;
+      grid-column-gap: 20px;
+    }
+  }
