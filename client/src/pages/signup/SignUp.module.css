@@ -50,7 +50,7 @@ input {
   z-index: 2;
   width: 80%;
   padding: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 15px !important;
   border: none;
   background: #333333;
   color: white;
