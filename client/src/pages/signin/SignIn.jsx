@@ -1,154 +1,69 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import classes from "./SignIn.module.css";
-import validationService from "../../utils/validation";
-import { useAuth } from "../../context/auth/authState";
-import Preloader from "../../components/preloader/Preloader";
-import Notification from "../../services/NotificationService";
-// import logo from "../../assets/Images/logo.png";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import "./SignIn.module.css"; // Import the CSS file
 
 const SignIn = () => {
-  const { login } = useAuth();
-  const history = useHistory();
-
-  const [userDetails, setUserDetails] = useState({
-    email: "",
-    password: "",
-  });
-  const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-  });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const validate = () => {
-    const error = {};
-    error.password = !userDetails.password
-      ? ""
-      : validationService.password(userDetails.password)
-      ? false
-      : "Minimum 5 characters, at least one uppercase, lowercase , number and special character:";
-
-    setErrors(error);
-    return !error.email && !error.password ? true : false;
-  };
-
-  const onChangeHandler = (e) => {
-    let user = userDetails;
-    user[e.target.name] = e.target.value;
-    setUserDetails(user);
-    validate();
-  };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    if (errors.email || errors.password) {
-      return;
-    }
-
-    if (!userDetails.email && !userDetails.password) {
-      Notification.show({
-        message: "Enter valid details",
-        status: false,
-      });
-      return;
-    }
-
-    if (!userDetails.email) {
-      setErrors((prevState) => ({
-        ...prevState,
-        email: "Please enter your email or username",
-      }));
-      return;
-    }
-
-    if (!userDetails.password) {
-      setErrors((prevState) => ({
-        ...prevState,
-        password: "Please enter your password",
-      }));
-      return;
-    }
-
     try {
-      setIsLoading(true);
-      await login(userDetails);
-      Notification.show({
-        message: "Successfully logged in",
-        status: true,
+      const response = await axios.post("http://127.0.0.1:8000/moviefinder/login", {
+        email,
+        password,
       });
-      setIsLoading(false);
-      history.replace("/");
+      
+      console.log('Login success:', response.data);
+
+      // Add logic here for successful login if needed
+
     } catch (error) {
-      setIsLoading(false);
-      Notification.show({
-        message: error,
-        status: false,
-      });
+      console.error('Login error:', error); 
+
+      // Add logic here for handling login error if needed
     }
   };
 
-  let content;
+  return (
+    <form className="SignIn login-form" onSubmit={onSubmitHandler}>
+      <div className="SignIn_Box">
+        <h1 className="title_SU">SIGN IN</h1>
 
-  if (isLoading) {
-    content = (
-      <>
-        <Preloader />{" "}
-      </>
-    );
-  } else {
-    content = (
-      <>
-        {/* <Link to="/">
-          <img className={classes.logo} src={logo} alt="logo" />
-        </Link> */}
-      
-        <div className={classes.SignIn}>
-          <div className={classes.SignIn_Box}>
-            <h1 className={classes.title_SU}>SIGN IN</h1>
+        <input
+          type="text"
+          placeholder="Email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-            <form onSubmit={onSubmitHandler}>
-              <input
-                type="text"
-                placeholder="Email or Username"
-                name="email"
-                value={userDetails.email}
-                onChange={onChangeHandler}
-              />
-              {errors.email && (
-                <span className="text-danger pb-3">{errors.email}</span>
-              )}
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={userDetails.password}
-                onChange={onChangeHandler}
-              />
-              {errors.password && (
-                <span className="text-danger px-5 pb-3">{errors.password}</span>
-              )}
+        <input type="submit" value="SUBMIT" />
 
-              <input type="submit" value="SUBMIT" />
-            </form>
-            <div className={classes.bottomLinkWrapper}>
-              <Link to="/forgot-password" className={classes.BottomLinks}>
-                Forgot Password ?
-              </Link>
+        <div className="bottomLinkWrapper">
+          <Link to="/forgot-password" className="BottomLinks">
+            Forgot Password?
+          </Link>
 
-              <Link to="/signup" className={classes.BottomLinks}>
-                New User ?
-              </Link>
-            </div>
-          </div>
+          <Link to="/signup" className="BottomLinks">
+            New User?
+          </Link>
         </div>
-      </>
-    );
-  }
-
-  return content;
+      </div>
+    </form>
+  );
 };
 
 export default SignIn;

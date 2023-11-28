@@ -38,28 +38,30 @@ const AuthProvider = (props) => {
     }
   };
 
+  //////////////////////////////////////////////////////////
   const login = async (userData) => {
     try {
-      const { data } = await axios.post(
-        "/api/auth/login",
-        userData
-      );
+      const { data } = await axios.post("http://127.0.0.1:8000/moviefinder/login", userData);
       
-      sessionStorage.removeItem('prevSearches')
-      sessionStorage.removeItem('history')
-      sessionStorage.removeItem('homepage')
+      console.log('Login success:', data.test1);
 
-      dispatch({
-        type: LOGIN,
-        payload: {
-          token: data.token,
-          user: data.user
-        },
-      });
+      // sessionStorage.removeItem('prevSearches')
+      // sessionStorage.removeItem('history')
+      // sessionStorage.removeItem('homepage')
+
+      // dispatch({
+      //   type: LOGIN,
+      //   payload: {
+      //     token: data.token,
+      //     user: data.user
+      //   },
+      // });
     } catch (error) {
-      errorResponse(error)
+      console.error('Login error:', error); 
     }
   };
+  
+  /////////////////////////////////////////////////////
 
   const logout = () => {
     dispatch({
