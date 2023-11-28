@@ -15,6 +15,8 @@ import MovieProvider from './context/movies/movieState';
 import GuestRoute from './routes/GuestRoute';
 import ProtectedRoute from './routes/ProtectedRoute';
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   
   return (

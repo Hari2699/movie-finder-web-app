@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background-color: #313131;
+  background-color: #313131 !important;
 }
 
 *::-webkit-scrollbar{
