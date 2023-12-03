@@ -4,8 +4,7 @@ import MovieContext from './movieContext'
 import movieReducer from './movieReducer'
 import { useAuth } from '../auth/authState'
 import { localStoreUtil } from '../movies/movieReducer'
-import { BASE_URL } from "../../services/Api";
-import { API_KEY } from "../../services/Api";
+
 
 import axios from 'axios';
 import errorResponse from '../../utils/errorResponse'
@@ -121,7 +120,7 @@ const MovieProvider = (props) => {
                 return movie
             } else {
                 const { data } = await axios.get(
-                    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`,token ? {
+                    `http://localhost:8000/api/movies/details/${movieId}`,token ? {
                         headers: {
                             Authorization: `Bearer ${token}` 
                         }
@@ -137,7 +136,7 @@ const MovieProvider = (props) => {
     
     const getMovieCredits = async (movieId) => {
         try {
-            const response = await axios.get(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
+            const response = await axios.get(`http://localhost:8000/api/movies/credits/${movieId}`);
             return response;
         } catch (error) {
             errorResponse(error);
@@ -146,7 +145,7 @@ const MovieProvider = (props) => {
 
     const getSimilarMovies = async (movieId) => {
         try {
-            const response = await axios.get(`${BASE_URL}/movie/${movieId}/similar?api_key=${API_KEY}`);
+            const response = await axios.get(`http://localhost:8000/api/movies/similar/${movieId}`);
             return response;
         } catch (error) {
             errorResponse(error);

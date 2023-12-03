@@ -12,9 +12,6 @@ import Footer from "../../components/footer/Footer";
 import Preloader from "./../../components/preloader/Preloader";
 import Notification from "../../services/NotificationService";
 
-import { API_KEY } from "../../services/Api";
-import { BASE_URL } from "../../services/Api";
-
 
 const Home = () => {
   const { token } = useAuth();
@@ -38,7 +35,7 @@ const Home = () => {
 
   const fetchmostPopular = async () => {
     try {
-      const { data } = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
+      const { data } = await axios.get('http://localhost:8000/api/movies/most-popular/');
       setmostPopular(data.results);
     } catch (err) {
       console.log(err);
@@ -47,7 +44,7 @@ const Home = () => {
 
   const fetchlatestReleases = async () => {
     try {
-      const { data } = await axios.get(`${BASE_URL}/movie/now_playing?api_key=${API_KEY}`);
+      const { data } = await axios.get('http://localhost:8000/api/movies/latest-releases/');
       setlatestReleases(data.results);
     } catch (err) {
       console.log(err);
@@ -56,7 +53,7 @@ const Home = () => {
 
   const fetchtopRated = async () => {
     try {
-      const { data } = await axios.get(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`);
+      const { data } = await axios.get('http://localhost:8000/api/movies/top-rated/');
       settopRated(data.results);
     } catch (err) {
       console.log(err);
@@ -65,7 +62,7 @@ const Home = () => {
 
   const fetchsearchResults = async (query) => {
     try {
-      const { data } = await axios.get(`${BASE_URL}/search/movie?query=${query}&api_key=${API_KEY}`);
+      const { data } = await axios.get(`http://localhost:8000/api/movies/search?query=${query}`);
       const searchResultsWithPosters = data.results.filter(movie => movie.poster_path !== null);
       setsearchResults(searchResultsWithPosters);
     } catch (err) {
