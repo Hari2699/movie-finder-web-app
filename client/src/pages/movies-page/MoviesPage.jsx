@@ -18,7 +18,7 @@ import axios from 'axios';
 
 
 const MoviePage = () => {
-    const { getMovieById, getMovieCredits, getSimilarMovies } = useMovies()
+    const { getMovieById, getMovieCredits, getSimilarMovies } = useMovies();
     const { id: movieId } = useParams();
     
     const [movie, setMovie] = useState({
@@ -71,7 +71,7 @@ const MoviePage = () => {
         return () => {
             source.cancel()
         }
-    }, [movieId])
+    }, [movieId]) // eslint-disable-line react-hooks/exhaustive-deps
     
     const setMovieData = (movieData) => {
         let updatedMovieData = {...movieData};

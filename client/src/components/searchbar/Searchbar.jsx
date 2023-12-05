@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classes from './Searchbar.module.css'
 import { useMovies } from '../../context/movies/movieState'
 

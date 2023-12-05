@@ -12,7 +12,7 @@ const Footer = () => {
       <div className={classes.itemsFooter}>
         <h3 className={classes.headFooter}>
           <span style={{ color: "#FF5F1Fd8" }}>MOVIE</span>
-          <span>FINDER</span>
+          <span>MAZE</span>
         </h3>
       </div>
       <div className={classes.socialFooter}>
