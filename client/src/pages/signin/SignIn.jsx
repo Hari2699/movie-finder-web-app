@@ -5,7 +5,7 @@ import validationService from "../../utils/validation";
 import { useAuth } from "../../context/auth/authState";
 import Preloader from "../../components/preloader/Preloader";
 import Notification from "../../services/NotificationService";
-// import logo from "../../assets/Images/logo.png";
+import logo from "../../assets/Images/logo.png";
 
 const SignIn = () => {
   const { login } = useAuth();
@@ -27,7 +27,7 @@ const SignIn = () => {
       ? ""
       : validationService.password(userDetails.password)
       ? false
-      : "Minimum 5 characters, at least one uppercase, lowercase , number and special character:";
+      : "";
 
     setErrors(error);
     return !error.email && !error.password ? true : false;
@@ -100,9 +100,9 @@ const SignIn = () => {
   } else {
     content = (
       <>
-        {/* <Link to="/">
+        <Link to="/">
           <img className={classes.logo} src={logo} alt="logo" />
-        </Link> */}
+        </Link>
       
         <div className={classes.SignIn}>
           <div className={classes.SignIn_Box}>
@@ -134,9 +134,9 @@ const SignIn = () => {
               <input type="submit" value="SUBMIT" />
             </form>
             <div className={classes.bottomLinkWrapper}>
-              <Link to="/forgot-password" className={classes.BottomLinks}>
+              {/* <Link to="/forgot-password" className={classes.BottomLinks}>
                 Forgot Password ?
-              </Link>
+              </Link> */}
 
               <Link to="/signup" className={classes.BottomLinks}>
                 New User ?
