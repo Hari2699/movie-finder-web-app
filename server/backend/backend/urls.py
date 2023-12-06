@@ -28,3 +28,6 @@ urlpatterns = [
     path('api/movies/credits/<int:movie_id>/', views.get_movie_credits, name='movie-credits'),
     path('api/movies/similar/<int:movie_id>/', views.get_similar_movies, name='similar-movies'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
