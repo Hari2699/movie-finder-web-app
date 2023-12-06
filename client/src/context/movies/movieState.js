@@ -120,7 +120,7 @@ const MovieProvider = (props) => {
                 return movie
             } else {
                 const { data } = await axios.get(
-                    `http://localhost:8000/api/movies/details/${movieId}`,token ? {
+                    `http://127.0.0.1:8000/api/movies/details/${movieId}`,token ? {
                         headers: {
                             Authorization: `Bearer ${token}` 
                         }
@@ -136,7 +136,7 @@ const MovieProvider = (props) => {
     
     const getMovieCredits = async (movieId) => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/movies/credits/${movieId}`);
+            const response = await axios.get(`http://127.0.0.1:8000/api/movies/credits/${movieId}`);
             return response;
         } catch (error) {
             errorResponse(error);
@@ -145,7 +145,7 @@ const MovieProvider = (props) => {
 
     const getSimilarMovies = async (movieId) => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/movies/similar/${movieId}`);
+            const response = await axios.get(`http://127.0.0.1:8000/api/movies/similar/${movieId}`);
             return response;
         } catch (error) {
             errorResponse(error);
