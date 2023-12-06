@@ -35,7 +35,7 @@ const Home = () => {
 
   const fetchmostPopular = async () => {
     try {
-      const { data } = await axios.get('http://localhost:8000/api/movies/most-popular/');
+      const { data } = await axios.get('http://127.0.0.1:8000/api/movies/most-popular/');
       setmostPopular(data.results);
     } catch (err) {
       console.log(err);
@@ -44,7 +44,7 @@ const Home = () => {
 
   const fetchlatestReleases = async () => {
     try {
-      const { data } = await axios.get('http://localhost:8000/api/movies/latest-releases/');
+      const { data } = await axios.get('http://127.0.0.1:8000/api/movies/latest-releases/');
       setlatestReleases(data.results);
     } catch (err) {
       console.log(err);
@@ -53,7 +53,7 @@ const Home = () => {
 
   const fetchtopRated = async () => {
     try {
-      const { data } = await axios.get('http://localhost:8000/api/movies/top-rated/');
+      const { data } = await axios.get('http://127.0.0.1:8000/api/movies/top-rated/');
       settopRated(data.results);
     } catch (err) {
       console.log(err);
@@ -62,7 +62,7 @@ const Home = () => {
 
   const fetchsearchResults = async (query) => {
     try {
-      const { data } = await axios.get(`http://localhost:8000/api/movies/search?query=${query}`);
+      const { data } = await axios.get(`http://127.0.0.1:8000/api/movies/search?query=${query}`);
       const searchResultsWithPosters = data.results.filter(movie => movie.poster_path !== null);
       setsearchResults(searchResultsWithPosters);
     } catch (err) {
