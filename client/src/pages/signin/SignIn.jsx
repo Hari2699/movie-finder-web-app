@@ -27,7 +27,7 @@ const SignIn = () => {
       ? ""
       : validationService.password(userDetails.password)
       ? false
-      : "Minimum 5 characters, at least one uppercase, lowercase , number and special character:";
+      : " ";
 
     setErrors(error);
     return !error.username && !error.password ? true : false;
