@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import classes from "./SignUp.module.css";
 import validationService from '../../utils/validation'
 import getRandomImage from './../../utils/randomImagePicker';
-import logo from "../../assets/Images/logo.png";
+// import logo from "../../assets/Images/logo.png";
 import { useAuth } from '../../context/auth/authState'
 import Preloader from "../../components/preloader/Preloader";
 import Notification from "../../services/NotificationService";
@@ -123,6 +123,41 @@ const SignUp = () => {
         status: false
       })
     }
+    try {
+      setIsLoading(true);
+  
+      const response = await fetch('http://127.0.0.1:8000/accounts/signup/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: userDetails.username,
+          email: userDetails.email,
+          dob: userDetails.dob,
+          password: userDetails.password
+        }),
+      });
+  
+      const data = await response.json();
+      console.log(data);
+  
+      Notification.show({
+        message: "Successfully created account",
+        status: true
+      });
+  
+      setIsLoading(false);
+      history.push('/signin');
+  
+    } catch (error) {
+      setIsLoading(false);
+      Notification.show({
+        message: error.message || "An error occurred",
+        status: false
+      });
+      console.error('Error:', error);
+    }
   }
 
   let content;
@@ -133,9 +168,9 @@ const SignUp = () => {
   else {
     content = (
       <>
-        <Link to="/">
+        {/* <Link to="/">
           <img className={ classes.logo } src={ logo } alt='logo' />
-        </Link>
+        </Link> */}
         <div className={ classes.SignUp }>
 
           <div className={ classes.signUp_box_wrapper }>

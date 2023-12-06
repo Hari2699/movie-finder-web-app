@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -29,6 +29,8 @@ urlpatterns = [
     path('api/movies/details/<int:movie_id>/', views.get_movieId_details, name='movie-details'),
     path('api/movies/credits/<int:movie_id>/', views.get_movie_credits, name='movie-credits'),
     path('api/movies/similar/<int:movie_id>/', views.get_similar_movies, name='similar-movies'),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
