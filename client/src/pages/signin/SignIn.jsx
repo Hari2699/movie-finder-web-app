@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import classes from "./SignIn.module.css";
 import validationService from "../../utils/validation";
-import { useAuth } from "../../context/auth/authState";
+// import { useAuth } from "../../context/auth/authState";
 import Preloader from "../../components/preloader/Preloader";
 import Notification from "../../services/NotificationService";
 import logo from "../../assets/Images/logo.png";
 
 const SignIn = () => {
-  const { login } = useAuth(); // eslint-disable-line react-hooks/exhaustive-deps
+  // const { login } = useAuth(); 
   const history = useHistory();
 
   const [userDetails, setUserDetails] = useState({
