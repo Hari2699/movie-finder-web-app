@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import classes from "./SignUp.module.css";
 import validationService from '../../utils/validation'
 import getRandomImage from './../../utils/randomImagePicker';
-// import logo from "../../assets/Images/logo.png";
+import logo from "../../assets/Images/logo.png";
 import { useAuth } from '../../context/auth/authState'
 import Preloader from "../../components/preloader/Preloader";
 import Notification from "../../services/NotificationService";
@@ -168,9 +168,9 @@ const SignUp = () => {
   else {
     content = (
       <>
-        {/* <Link to="/">
+        <Link to="/">
           <img className={ classes.logo } src={ logo } alt='logo' />
-        </Link> */}
+        </Link>
         <div className={ classes.SignUp }>
 
           <div className={ classes.signUp_box_wrapper }>
