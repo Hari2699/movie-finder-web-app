@@ -13,8 +13,9 @@ from rest_framework.authtoken.models import Token
 def login(request):
     username = request.data.get('username')
     password = request.data.get('password')
+    token = request.data.get('token')
 
-    user = auth.authenticate(username=username, password=password)
+    user = auth.authenticate(username=username, password=password, token=token)
     if user is not None:
         token, _ = Token.objects.get_or_create(user=user)
         return Response({'success': True, 'token': token.key, 'message': 'Login successful'})

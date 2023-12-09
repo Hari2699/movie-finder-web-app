@@ -5,4 +5,5 @@ class Accounts(models.Model):
     password = models.TextField()
     email = models.TextField()
     dob = models.TextField()
+    token = models.TextField()
   

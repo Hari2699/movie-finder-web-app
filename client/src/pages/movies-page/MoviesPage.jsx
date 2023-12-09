@@ -18,7 +18,7 @@ import axios from 'axios';
 
 
 const MoviePage = () => {
-    const { getMovieById, getMovieCredits, getSimilarMovies } = useMovies();
+    const { getMovieById, getMovieCredits, getSimilarMovies, getMovieTrailer, getStreamingPlatforms } = useMovies();
     const { id: movieId } = useParams();
     
     const [movie, setMovie] = useState({
@@ -36,7 +36,7 @@ const MoviePage = () => {
         plot: "",
         id: "",
         similarMovies: [],
-        trailer: ""
+        trailer: []
     })
 
     const [isLoading, setIsLoading] = useState(false)
@@ -56,6 +56,10 @@ const MoviePage = () => {
                 setCreditData(creditsData);
                 const similarMovies = await getSimilarMovies(movieId);
                 setSimilarMovies(similarMovies);
+                const movieTrailer = await getMovieTrailer(movieId);
+                setMovieTrailer(movieTrailer);
+                //const platformsData = await getStreamingPlatforms(movieId);
+                //setStreamingPlatforms(platformsData);
                 setIsLoading(false)
             } catch (error) {
                 setIsLoading(false)
@@ -84,15 +88,28 @@ const MoviePage = () => {
     }
 
     const setCreditData = (creditsData) => {
-        const directors = creditsData.data.crew
+        let directors = creditsData.data.crew
             .filter(member => member.known_for_department === 'Directing')
-            .map(director => director.name) || [];
+            .map(director => director.name);
+            directors = [...new Set(directors)];
+            if (directors.length === 0) {
+                directors = ["Director(s) Not Available"];
+            }
 
-        const writers = creditsData.data.crew
+        let writers = creditsData.data.crew
             .filter(member => member.known_for_department === 'Writing')
-            .map(writer => writer.name) || [];
+            .map(writer => writer.name);
+            writers = [...new Set(writers)];
+            if (writers.length === 0) {
+                writers = ["Writer(s) Not Available"];
+            }
 
-        const stars = creditsData.data.cast.slice(0, 10).map(actor => actor.name) || [];
+
+        let stars = creditsData.data.cast.slice(0, 10).map(actor => actor.name);
+            stars = [...new Set(stars)];
+            if (stars.length === 0) {
+                stars = ["Star(s) Not Available"];
+            }
         setMovie(prevMovie => ({
             ...prevMovie,
             director: directors,
@@ -109,6 +126,16 @@ const MoviePage = () => {
         }));
     }
 
+    const setMovieTrailer = (movieTrailer) => {
+        const trailer = movieTrailer.data.results.find(video => video.site === "YouTube" && video.type === "Trailer");
+        const trailerUrl = trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : "No Trailer Found";
+        setMovie(prevMovie => ({
+            ...prevMovie,
+            trailer: trailerUrl
+        }));
+
+    }
+    
     let content
     
     if (isLoading) {
@@ -125,7 +152,7 @@ const MoviePage = () => {
                 <div className={ classes.pageWrapper }>
                     <div className={ classes.topWrapper }>
                         <div className={ classes.movieTop }>
-                            <div className={ classes.leftDiv }>
+                           <div className={ classes.leftDiv }>
                                 <Poster posterImage= {`https://image.tmdb.org/t/p/w300${movie.poster_path}`} 
                                 trailerLink={ movie.trailer } 
                                 />
@@ -137,7 +164,7 @@ const MoviePage = () => {
                                     ratings={ movie.vote_average }
                                     languages={ movie.spoken_languages }
                                     platforms={ movie.streaming }
-                                    runtime = { movie.runtime }
+                                    runtime = { `${movie.runtime} min` }
                                 />
                             </div>
                         </div>

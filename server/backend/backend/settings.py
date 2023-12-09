@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'moviefinder',
         'USER':'postgres',
-        'PASSWORD':'wcwwweecw123',
+        'PASSWORD':'Aldr1949',
         'HOST':'localhost'
     }
 }

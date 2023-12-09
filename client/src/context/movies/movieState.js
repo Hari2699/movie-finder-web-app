@@ -152,6 +152,15 @@ const MovieProvider = (props) => {
         }
     };
 
+    const getMovieTrailer = async (movieId) => {
+        try {
+            const response = await axios.get(`http://127.0.0.1:8000/api/movies/trailors/${movieId}`);
+            return response;
+        } catch (error) {
+            errorResponse(error);
+        }
+    };
+
     const setHistoryHandler = async (movie) => {
         try{
             const historyMovies = localStoreUtil('history')
@@ -246,6 +255,7 @@ const MovieProvider = (props) => {
         getMovieById,
         getMovieCredits,
         getSimilarMovies,
+        getMovieTrailer,
         getHistory,
         getRecommended
     }
