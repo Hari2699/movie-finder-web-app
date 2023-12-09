@@ -195,7 +195,7 @@ const SignUp = () => {
                 />
                 { errors.email && <span className="text-danger pb-3">{ errors.email }</span> }
                 <input
-                  placeholder="DOB"
+                  placeholder="Date of Birth"
                   type="text"
                   onFocus={ (e) => (e.target.type = "date") }
                   name='dob'
