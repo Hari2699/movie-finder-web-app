@@ -8,7 +8,7 @@ import Notification from "../../services/NotificationService";
 import logo from "../../assets/Images/logo.png";
 
 const SignIn = () => {
-  const { login } = useAuth();
+  const { login } = useAuth(); // eslint-disable-line react-hooks/exhaustive-deps
   const history = useHistory();
 
   const [userDetails, setUserDetails] = useState({
