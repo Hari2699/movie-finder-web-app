@@ -92,24 +92,24 @@ const MoviePage = () => {
             .filter(member => member.known_for_department === 'Directing')
             .map(director => director.name);
             directors = [...new Set(directors)];
-            if (directors.length === 0) {
+            /*if (directors.length === 0) {
                 directors = ["Director(s) Not Available"];
-            }
+            }*/
 
         let writers = creditsData.data.crew
             .filter(member => member.known_for_department === 'Writing')
             .map(writer => writer.name);
             writers = [...new Set(writers)];
-            if (writers.length === 0) {
+            /*if (writers.length === 0) {
                 writers = ["Writer(s) Not Available"];
-            }
+            }*/
 
 
         let stars = creditsData.data.cast.slice(0, 10).map(actor => actor.name);
             stars = [...new Set(stars)];
-            if (stars.length === 0) {
+            /*if (stars.length === 0) {
                 stars = ["Star(s) Not Available"];
-            }
+            }*/
         setMovie(prevMovie => ({
             ...prevMovie,
             director: directors,

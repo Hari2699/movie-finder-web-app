@@ -13,29 +13,33 @@ function Description({ story, directors, writers, stars }){
              <Row className={ classes.description }>
              <p>{ story }</p>
              </Row>
-             <Row className={ classes.descBox }>
-                 <Col lg={2} xs={5} className={ classes.field }>DIRECTORS</Col>
-                 <Col lg={1} xs={1} className={ classes.field }></Col>
-                 <Col lg={9} xs={12} className={ classes.value }>
+             {directors.length > 0 ? (
+                <Row className={ classes.descBox }>
+                    <Col lg={2} xs={5} className={ classes.field }>DIRECTORS</Col>
+                    <Col lg={1} xs={1} className={ classes.field }></Col>
+                    <Col lg={9} xs={12} className={ classes.value }>
                     <CommaSeperatedText textArray={directors} />
                  </Col>
              </Row>
-
-             <Row className={ classes.descBox }>
-                 <Col lg={2} xs={5} className={ classes.field }>WRITERS</Col>
-                 <Col lg={1} xs={1} className={ classes.field }></Col>
-                 <Col lg={9} xs={10} className={ classes.value }>
+             ) : null}
+             {writers.length > 0 ? (
+                <Row className={ classes.descBox }>
+                    <Col lg={2} xs={5} className={ classes.field }>WRITERS</Col>
+                    <Col lg={1} xs={1} className={ classes.field }></Col>
+                    <Col lg={9} xs={10} className={ classes.value }>
                     <CommaSeperatedText textArray={writers} />
                  </Col>
              </Row>
-
-             <Row className={ classes.descBox }>
-                 <Col lg={2} xs={5} className={ classes.field }>STARS</Col>
-                 <Col lg={1} xs={1} className={ classes.field }></Col>
-                 <Col lg={9} xs={10} className={ classes.value }>
+            ) : null}
+            {stars.length > 0 ? (
+                <Row className={ classes.descBox }>
+                    <Col lg={2} xs={5} className={ classes.field }>STARS</Col>
+                    <Col lg={1} xs={1} className={ classes.field }></Col>
+                    <Col lg={9} xs={10} className={ classes.value }>
                     <CommaSeperatedText textArray={stars} />
                  </Col>
-             </Row>
+                </Row>
+            ) : null}
          </Container>
     ) ;
  }
