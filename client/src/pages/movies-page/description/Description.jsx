@@ -13,7 +13,7 @@ function Description({ story, directors, writers, stars }){
              <Row className={ classes.description }>
              <p>{ story }</p>
              </Row>
-             {directors.length > 0 ? (
+             {directors && directors.length > 0 ? (
                 <Row className={ classes.descBox }>
                     <Col lg={2} xs={5} className={ classes.field }>DIRECTORS</Col>
                     <Col lg={1} xs={1} className={ classes.field }></Col>
@@ -22,7 +22,7 @@ function Description({ story, directors, writers, stars }){
                  </Col>
              </Row>
              ) : null}
-             {writers.length > 0 ? (
+             {writers && writers.length > 0 ? (
                 <Row className={ classes.descBox }>
                     <Col lg={2} xs={5} className={ classes.field }>WRITERS</Col>
                     <Col lg={1} xs={1} className={ classes.field }></Col>
@@ -31,7 +31,7 @@ function Description({ story, directors, writers, stars }){
                  </Col>
              </Row>
             ) : null}
-            {stars.length > 0 ? (
+            {stars && stars.length > 0 ? (
                 <Row className={ classes.descBox }>
                     <Col lg={2} xs={5} className={ classes.field }>STARS</Col>
                     <Col lg={1} xs={1} className={ classes.field }></Col>
