@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:14-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=wcwwweecw123
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=moviefinder
+    volumes:
+      - ./data/db:/var/lib/postgresql/data/
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./server/backend
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_PASSWORD=wcwwweecw123
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=moviefinder
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./server/backend:/app
+    depends_on:
+      - db
+    command: >
+      sh -c "while ! nc -z db 5432;
+             do
+               echo 'Waiting for the db service...';
+               sleep 1;
+             done;
+             echo 'db service is up!';
+             python manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
