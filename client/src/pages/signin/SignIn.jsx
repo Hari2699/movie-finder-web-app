@@ -81,7 +81,8 @@ const SignIn = () => {
         const data = await response.json();
 
         if (data.success) {
-            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('authToken', data.access); // Store the access token
+            localStorage.setItem('refreshToken', data.refresh); // Store the refresh token
             localStorage.setItem('userData', JSON.stringify({ username: userDetails.username }));    
             Notification.show({
                 message: "Successfully logged in",

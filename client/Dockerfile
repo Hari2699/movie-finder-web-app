@@ -10,6 +10,8 @@ COPY package*.json ./
 # Install dependencies including 'react-app-rewired'
 RUN npm install
 
+RUN npm install jwt-decode
+
 # Copy the rest of the frontend application to the container
 COPY . .
 
