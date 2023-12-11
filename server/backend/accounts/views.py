@@ -28,10 +28,8 @@ def login(request):
     username = request.data.get('username')
     password = request.data.get('password')
 
-    # Authenticate the user using username and password
     user = auth.authenticate(username=username, password=password)
     if user is not None:
-        # Create a new JWT token for the user
         refresh = RefreshToken.for_user(user)
         return Response({
             'success': True,
@@ -40,17 +38,7 @@ def login(request):
             'message': 'Login successful'
         })
     else:
-        # If authentication fails, return an error response
         return Response({'success': False, 'message': 'Invalid username or password'}, status=status.HTTP_401_UNAUTHORIZED)
-
-
-#@require_POST
-#@csrf_exempt 
-#def logout(request):
-
- #   auth.logout(request)
-
- #   return JsonResponse({'success': True, 'message': 'Successfully logged out.'})
  
 @api_view(['POST'])
 def signup(request):

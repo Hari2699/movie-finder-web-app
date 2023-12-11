@@ -4,7 +4,7 @@ import TopBar from "../../components/top-bar/TopBar";
 import classes from "./Profile.module.css";
 import posterImage from "../../assets/Images/mk.jpg";
 import Footer from "../../components/footer/Footer";
-import { Container, Row, Col } from "react-bootstrap"; // Make sure React Bootstrap is installed
+import { Container, Row, Col } from "react-bootstrap";
 
 const Profile = () => {
     const history = useHistory();
@@ -27,15 +27,15 @@ const Profile = () => {
                 })
                 .catch(error => {
                     console.error("Error fetching profile:", error);
-                    history.push('/'); // Redirect to home on error
+                    history.push('/');
                 });
         } else {
-            history.push('/signin'); // Redirect to sign-in if userData is not available
+            history.push('/signin');
         }
     }, [history]);
 
     if (!userDetails) {
-        return <div>Loading...</div>; // Loading state
+        return <div>Loading...</div>;
     }
 
     return (

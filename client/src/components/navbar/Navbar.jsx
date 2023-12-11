@@ -19,7 +19,6 @@ const Navbar = () => {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    // Check for JWT token and user data in local storage
     const userData = localStorage.getItem('userData');
     if (userData) {
       const user = JSON.parse(userData);
@@ -29,7 +28,6 @@ const Navbar = () => {
   }, []);
 
   const logoutHandler = () => {
-    // Clear the JWT token and user data from local storage
     localStorage.removeItem('authToken');
     localStorage.removeItem('userData');
     setIsSignedIn(false);
@@ -38,7 +36,6 @@ const Navbar = () => {
       message: 'Successfully logged out',
       status: true
     });
-    // Redirect to home page or login page
     history.push('/signin');
   };
 
