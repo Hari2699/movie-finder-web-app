@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'moviefinder',
-        'USER': 'postgres',
-        'PASSWORD': 'wcwwweecw123',
-        'HOST': 'db',
-        'PORT': '5432',
+        'NAME': os.environ.get('DJANGO_DB_NAME','moviefinder' ),
+        'USER': os.environ.get("DJANGO_DB_USER",'postgres' ) ,
+        'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD', 'wcwwweecw123'),
+        'HOST': os.environ.get('DJANGO_DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DJANGO_DB_PORT', '5432'),
     }
 }
 

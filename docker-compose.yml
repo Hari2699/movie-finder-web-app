@@ -29,9 +29,11 @@ services:
       context: ./server/backend
       dockerfile: Dockerfile
     environment:
-      - POSTGRES_PASSWORD=wcwwweecw123
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=moviefinder
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_PORT=5432
+      - DJANGO_DB_NAME=moviefinder
+      - DJANGO_DB_USER=postgres
+      - DJANGO_DB_PASSWORD=wcwwweecw123
     ports:
       - '8000:8000'
     volumes:
