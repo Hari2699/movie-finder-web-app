@@ -22,6 +22,18 @@
   object-fit: cover;
 }
 
+.ProfileContainer{
+  padding: 4rem;
+}
+
+.ProfileContainerTitle{
+  padding: 2.5rem;
+}
+
+.ProfileContainerRow{
+  margin: 2.5rem;
+}
+
 .Details,
 .Password {
   width: 50%;
@@ -37,7 +49,7 @@
 }
 
 .Subtitle {
-  color: #0dc971;
+  color: #FF5F1Fd8;
   padding-bottom: 10px;
 }
 
@@ -53,7 +65,7 @@
 }
 
 .DetailsKey {
-  color: #ba63ff;
+  color: #838383;
   font-weight: bold;
   text-transform: capitalize;
   font-size: 20px;

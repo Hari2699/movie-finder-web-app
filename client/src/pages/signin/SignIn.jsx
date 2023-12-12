@@ -5,7 +5,6 @@ import validationService from "../../utils/validation";
 import Preloader from "../../components/preloader/Preloader";
 import Notification from "../../services/NotificationService";
 import logo from "../../assets/Images/logo.png";
-
 const SignIn = () => {
   const history = useHistory();
 

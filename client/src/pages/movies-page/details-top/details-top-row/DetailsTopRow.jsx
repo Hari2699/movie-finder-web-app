@@ -9,7 +9,7 @@ const DetailsTopRow = ({ content }) => {
         'released': classes.detailsText,
         'ratings': classes.ratingsDiv,
         'languages': classes.languageText,
-        'platforms': classes.platformDiv
+        // 'platforms': classes.platformDiv
     }
 
     return (

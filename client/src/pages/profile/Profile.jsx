@@ -45,13 +45,13 @@ const Profile = () => {
                 <div className={classes.ProfilePic}>
                     <img src={posterImage} alt="Profile" />
                 </div>
-                <Container>
-                    <Row>
+                <Container className={classes.ProfileContainer}>
+                    <Row className={classes.ProfileContainerTitle}>
                         <Col md={12}>
                             <h2 className={classes.Subtitle}>Your Details</h2>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className={classes.ProfileContainerRow}>
                         <Col md={6} className={classes.DetailsKey}>
                             Username
                         </Col>
@@ -59,7 +59,7 @@ const Profile = () => {
                             {userDetails.username}
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className={classes.ProfileContainerRow}>
                         <Col md={6} className={classes.DetailsKey}>
                             Email
                         </Col>
@@ -67,7 +67,7 @@ const Profile = () => {
                             {userDetails.email}
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className={classes.ProfileContainerRow}>
                         <Col md={6} className={classes.DetailsKey}>
                             Date of Birth
                         </Col>
