@@ -147,9 +147,9 @@ const SignIn = () => {
               <input type="submit" value="SUBMIT" />
             </form>
             <div className={classes.bottomLinkWrapper}>
-              <Link to="/forgot-password" className={classes.BottomLinks}>
+              {/* <Link to="/forgot-password" className={classes.BottomLinks}>
                 Forgot Password ?
-              </Link>
+              </Link> */}
 
               <Link to="/signup" className={classes.BottomLinks}>
                 New User ?
