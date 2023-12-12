@@ -29,6 +29,8 @@ urlpatterns = [
     path('api/movies/details/<int:movie_id>/', views.get_movieId_details, name='movie-details'),
     path('api/movies/credits/<int:movie_id>/', views.get_movie_credits, name='movie-credits'),
     path('api/movies/similar/<int:movie_id>/', views.get_similar_movies, name='similar-movies'),
+    path('api/movies/trailors/<int:movie_id>/', views.get_movie_trailer, name='movie-trailer'),
+    path('api/movies/providers/<int:movie_id>/', views.get_available_platforms, name='get-platforms'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls'))
 ]

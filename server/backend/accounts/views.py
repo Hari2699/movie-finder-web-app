@@ -27,8 +27,9 @@ def profile(request, username):
 def login(request):
     username = request.data.get('username')
     password = request.data.get('password')
+    token = request.data.get('token')
 
-    user = auth.authenticate(username=username, password=password)
+    user = auth.authenticate(username=username, password=password, token=token)
     if user is not None:
         refresh = RefreshToken.for_user(user)
         return Response({

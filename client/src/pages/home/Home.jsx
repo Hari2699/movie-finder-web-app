@@ -17,13 +17,7 @@ const Home = () => {
   const { token } = useAuth();
 
   const {
-    //mostPopular,
-    //latestReleases,
-    //topRated,
     recommended,
-    //homePageMovies,
-    //searchResults,
-    //getRecommended,
     genreMovies
   } = useMovies();
 

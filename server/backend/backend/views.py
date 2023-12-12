@@ -38,3 +38,11 @@ def get_movie_credits(request, movie_id):
 def get_similar_movies(request, movie_id):
     response = requests.get(f"{settings.BASE_URL}/movie/{movie_id}/similar?api_key={settings.API_KEY}")
     return JsonResponse(response.json())
+
+def get_movie_trailer(request, movie_id):
+    response = requests.get(f"{settings.BASE_URL}/movie/{movie_id}/videos?api_key={settings.API_KEY}")
+    return JsonResponse(response.json())
+
+def get_available_platforms(request, movie_id):
+    response = requests.get(f"{settings.BASE_URL}/movie/{movie_id}/watch/providers?api_key={settings.API_KEY}")
+    return JsonResponse(response.json())
