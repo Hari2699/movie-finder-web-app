@@ -8,6 +8,20 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout
 from django.http import JsonResponse
 from rest_framework.authtoken.models import Token
+from rest_framework_simplejwt.tokens import RefreshToken
+
+@api_view(['GET'])
+def profile(request, username):
+    try:
+        account = Accounts.objects.get(username=username)
+        return Response({
+            'username': account.username,
+            'email': account.email,
+            'dob': account.dob
+        })
+    except Accounts.DoesNotExist:
+        return Response({'message': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+
 
 @api_view(['POST'])
 def login(request):
@@ -17,19 +31,16 @@ def login(request):
 
     user = auth.authenticate(username=username, password=password, token=token)
     if user is not None:
-        token, _ = Token.objects.get_or_create(user=user)
-        return Response({'success': True, 'token': token.key, 'message': 'Login successful'})
+        refresh = RefreshToken.for_user(user)
+        return Response({
+            'success': True,
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+            'message': 'Login successful'
+        })
     else:
         return Response({'success': False, 'message': 'Invalid username or password'}, status=status.HTTP_401_UNAUTHORIZED)
-
-@require_POST
-@csrf_exempt 
-def logout(request):
-
-    auth.logout(request)
-
-    return JsonResponse({'success': True, 'message': 'Successfully logged out.'})
-
+ 
 @api_view(['POST'])
 def signup(request):
     username = request.data.get('username')
@@ -50,5 +61,4 @@ def signup(request):
         return Response({'message': 'User signed up successfully'})
     except Exception as e:
         return Response({'message': f'Failed to sign up user. Error: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
-
 

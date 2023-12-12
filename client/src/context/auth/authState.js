@@ -34,7 +34,7 @@ const AuthProvider = (props) => {
     try {
       await axios.post("/api/auth/signup", userData);
     } catch (error) {
-      errorResponse(error)
+      //errorResponse(error)
     }
   };
 

@@ -13,6 +13,7 @@ import MovieProvider from './context/movies/movieState';
 import GuestRoute from './routes/GuestRoute';
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import Profile from './pages/profile/Profile';
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <GuestRoute path="/signin" component={SignIn} />
             <GuestRoute path="/signup" component={ SignUp } />
+            <Route path="/profile" component={ Profile } />
             <Route path="/movie/:id" component={MoviePage} />
             <Route path="/mostpopular" component={ GotoPage } />
             <Route path="/latestmovies" component={ GotoPage } />
