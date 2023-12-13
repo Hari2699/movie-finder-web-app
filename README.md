@@ -110,7 +110,7 @@ A full stack web application which will provide all the details of various OTT (
 
 ## DOCKER
 
-Step 1 (Root Directory: c:/.../movie-finder-web-app/): "docker-compose build"
+Step 1 : (Root Directory: c:/.../movie-finder-web-app/): "docker-compose build"
 
 Step 2 : "docker-compose up"
 
