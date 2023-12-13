@@ -108,6 +108,14 @@ A full stack web application which will provide all the details of various OTT (
 
     "python3 manage.py runserver"
 
+## DOCKER
+
+Step 1 (Root Directory: c:/.../movie-finder-web-app/): "docker-compose build"
+
+Step 2 : "docker-compose up"
+
+Both frontend and backend will start running at the same time.
+
 
 ## PROJECT MANAGEMENT
 
